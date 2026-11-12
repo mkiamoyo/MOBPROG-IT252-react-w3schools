@@ -1,7 +1,8 @@
 function App() {
   return (
     <div className="App">
-      <h1>Hello MOBPROG 252 World!</h1>
+      <h1>Hello MOBPROG-IT252 World!</h1>
+      <h2>Happy 2026 SoCIT Fest!</h2>
       <h3>Mari Krisha Iana Amoyo</h3>
     </div>
   );
