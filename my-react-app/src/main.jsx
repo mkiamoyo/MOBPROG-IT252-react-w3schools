@@ -4,6 +4,7 @@ const users = [
   { id: 1, name: 'John', age: 30 },
   { id: 2, name: 'Jane', age: 25 },
   { id: 3, name: 'Bob', age: 35 }
+  { id: 4, name: 'Mari Krisha Iana', age: 20 }
 ];
 
 function UserList() {
