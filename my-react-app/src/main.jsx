@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client'
 import { useState } from 'react'
 
 function MyForm() {
-  const [name, setName] = useState("");
+  const [name, setName] = useState("Kiana");
 
   return (
     <form>
