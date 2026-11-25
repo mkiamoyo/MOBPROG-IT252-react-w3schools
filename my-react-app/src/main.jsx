@@ -1,24 +1,14 @@
 import { createRoot } from 'react-dom/client';
-import { Suspense, lazy } from 'react';
 
-const Header = lazy(() => import('./Header'));
-const Content = lazy(() => import('./Content'));
-const Sidebar = lazy(() => import('./Sidebar'));
-
-function App() {
+const Header = () => {
   return (
-    <div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Header />
-        <div style={{ display: 'flex' }}>
-          <Sidebar />
-          <Content />
-        </div>
-      </Suspense>
-    </div>
+    <>
+      <h1 style={{color: "red"}}>Hello Style!</h1>
+      <p>Add a little style!</p>
+    </>
   );
 }
 
 createRoot(document.getElementById('root')).render(
-  <App />
+  <Header />
 );
