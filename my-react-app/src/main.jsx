@@ -1,22 +1,17 @@
 import { createRoot } from 'react-dom/client'
 
-function MissedGoal() {
-  return <h1>MISSED!</h1>;
-}
-
-function MadeGoal() {
-  return <h1>Goal!</h1>;
-}
-
-function Goal(props) {
-  const isGoal = props.isGoal;
+function MyCars() {
+  const cars = ['Ford', 'BMW', 'Mercedes-Benz'];
   return (
     <>
-      { isGoal ? <MadeGoal/> : <MissedGoal/> }
+      <h1>My Cars:</h1>
+      <ul>
+        {cars.map((car) => <li>I am a { car }</li>)}
+      </ul>
     </>
   );
 }
 
 createRoot(document.getElementById('root')).render(
-  <Goal isGoal={false} />
+  <MyCars />
 );
