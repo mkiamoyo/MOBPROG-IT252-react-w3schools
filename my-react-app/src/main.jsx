@@ -1,20 +1,34 @@
-import { createRoot } from 'react-dom/client'
-import { useState } from 'react'
+import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
 function MyForm() {
-  const [myCar, setMyCar] = useState("Volvo");
+  const [inputs, setInputs] = useState({});
 
-  const handleChange = (event) => {
-    setMyCar(event.target.value)
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setInputs(values => ({...values, [name]: value}))
   }
 
   return (
     <form>
-      <select value={myCar} onChange={handleChange}>
-        <option value="Ford">Ford</option>
-        <option value="BMW">Volvo</option>
-        <option value="Mercedes-Benz">Fiat</option>
-      </select>
+      <label>First name:
+      <input 
+        type="text" 
+        name="firstname" 
+        value={inputs.firstname} 
+        onChange={handleChange}
+      />
+      </label>
+      <label>Last name:
+        <input 
+          type="text" 
+          name="lastname" 
+          value={inputs.lastname} 
+          onChange={handleChange}
+        />
+        </label>
+        <p>Current values: {inputs.firstname} {inputs.lastname}</p>
     </form>
   )
 }
