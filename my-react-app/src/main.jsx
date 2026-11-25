@@ -1,34 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 
-function MyCar() {
-  const [car, setCar] = useState({
-    brand: "BMW",
-    model: "M4",
-    year: "2022",
-    color: "red"
+function Timer() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCount((count) => count + 1);
+    }, 1000);
   });
 
-  const updateColor = () => {
-    setCar(previousState => {
-      return { ...previousState, color: "dark green" }
-    });
-  }
-
-  return (
-    <>
-      <h1>My {car.brand}</h1>
-      <p>
-        It is a {car.color} {car.model} from {car.year}.
-      </p>
-      <button
-        type="button"
-        onClick={updateColor}
-      >Blue</button>
-    </>
-  )
+  return <h1>I've rendered {count} times!</h1>;
 }
 
 createRoot(document.getElementById('root')).render(
-  <MyCar />
+  <Timer />
 );
