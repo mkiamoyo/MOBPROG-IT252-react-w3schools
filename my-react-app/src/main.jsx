@@ -1,13 +1,19 @@
 import { createRoot } from 'react-dom/client';
-import { Suspense } from 'react';
-import Cars from './Cars';
-// Click the "cars.jsx" tab to see the content of the "Cars.jsx" file
+import { Suspense, lazy } from 'react';
+
+const Header = lazy(() => import('./Header'));
+const Content = lazy(() => import('./Content'));
+const Sidebar = lazy(() => import('./Sidebar'));
 
 function App() {
   return (
     <div>
       <Suspense fallback={<div>Loading...</div>}>
-        <Cars />
+        <Header />
+        <div style={{ display: 'flex' }}>
+          <Sidebar />
+          <Content />
+        </div>
       </Suspense>
     </div>
   );
