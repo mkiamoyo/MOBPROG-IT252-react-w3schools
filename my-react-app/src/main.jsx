@@ -1,31 +1,26 @@
-import { useState } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client'
+import { useState } from 'react'
 
 function MyForm() {
-  const [name, setName] = useState("");
+  const [mytxt, setMytxt] = useState("");
 
   function handleChange(e) {
-    setName(e.target.value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    alert(name);
+    setMytxt(e.target.value);
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Enter your name:
-        <input
-          type="text" 
-          value={name}
+    <form>
+      <label>Write here:
+        <textarea
+          value={mytxt}
           onChange={handleChange}
         />
       </label>
-      <input type="submit" />
+      <p>Current value: {mytxt}</p>
     </form>
   )
 }
+
 createRoot(document.getElementById('root')).render(
   <MyForm />
 );
