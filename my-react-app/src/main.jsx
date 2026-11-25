@@ -1,16 +1,17 @@
 import { createRoot } from 'react-dom/client';
-import styles from './MyStyles.module.css';
+import styled from 'styled-components';
+
+const MyHeader = styled.h1`
+  padding: 10px 20px;
+  background-color: #006938;
+  color: white;
+`;
 
 function App() {
   return (
-    <div>
-      <h1 className="myheader">
-        My Header
-      </h1>
-      <p className={styles.myparagraph}>
-        My Paragraph
-      </p>
-    </div>
+    <>
+      <MyHeader>Welcome!</MyHeader>
+    </>
   );
 }
 
