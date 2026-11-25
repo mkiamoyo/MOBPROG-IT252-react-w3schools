@@ -2,21 +2,19 @@ import { createRoot } from 'react-dom/client'
 import { useState } from 'react'
 
 function MyForm() {
-  const [mytxt, setMytxt] = useState("");
+  const [myCar, setMyCar] = useState("Volvo");
 
-  function handleChange(e) {
-    setMytxt(e.target.value);
+  const handleChange = (event) => {
+    setMyCar(event.target.value)
   }
 
   return (
     <form>
-      <label>Write here:
-        <textarea
-          value={mytxt}
-          onChange={handleChange}
-        />
-      </label>
-      <p>Current value: {mytxt}</p>
+      <select value={myCar} onChange={handleChange}>
+        <option value="Ford">Ford</option>
+        <option value="BMW">Volvo</option>
+        <option value="Mercedes-Benz">Fiat</option>
+      </select>
     </form>
   )
 }
