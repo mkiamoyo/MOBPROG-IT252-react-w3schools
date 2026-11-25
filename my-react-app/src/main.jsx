@@ -1,11 +1,11 @@
 import { createRoot } from 'react-dom/client'
 
-function Car({color, brand, ...rest}) {
+function Car({color = "green", brand}) {
   return (
-    <h2>My {brand} {rest.model} is {color}!</h2>
+    <h2>My {color} {brand}!</h2>
   );
 }
 
 createRoot(document.getElementById('root')).render(
-  <Car brand="BMW" model="M4" color="dark green" year={2022} />
+  <Car brand="BMW" />
 );
