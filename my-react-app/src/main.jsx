@@ -1,15 +1,10 @@
 import { createRoot } from 'react-dom/client'
 
+//Check out the index.html file, were we have added some styles.
+
 function Car() {
-  const myobj = {
-    name: "Fiat",
-    model: "500",
-    color: "white"
-  };
   return (
-    <>
-      <h1>My car is a {myobj.color} {myobj.name} {myobj.model}</h1>
-    </>
+    <h1 className="myclass">Hello World</h1>
   );
 }
 
