@@ -6,8 +6,14 @@ function MyCar() {
     brand: "BMW",
     model: "M4",
     year: "2022",
-    color: "dark green"
+    color: "red"
   });
+
+  const updateColor = () => {
+    setCar(previousState => {
+      return { ...previousState, color: "dark green" }
+    });
+  }
 
   return (
     <>
@@ -15,6 +21,10 @@ function MyCar() {
       <p>
         It is a {car.color} {car.model} from {car.year}.
       </p>
+      <button
+        type="button"
+        onClick={updateColor}
+      >Blue</button>
     </>
   )
 }
