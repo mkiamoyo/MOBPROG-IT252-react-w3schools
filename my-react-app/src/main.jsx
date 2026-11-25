@@ -1,16 +1,11 @@
 import { createRoot } from 'react-dom/client';
+import './MyStylesheet.css';
 
 const Header = () => {
-  const myStyle = {
-    color: "white",
-    backgroundColor: "LightGreen",
-    padding: "10px",
-    fontFamily: "Sans-Serif"
-  };
   return (
     <>
-      <h1 style={myStyle}>Hello Style!</h1>
-      <p>Add a little style!</p>
+      <h1>Hello Style!</h1>
+      <p>Add a little style!.</p>
     </>
   );
 }
