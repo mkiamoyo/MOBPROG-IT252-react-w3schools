@@ -7,7 +7,7 @@ class Car extends React.Component {
     this.state = {
       brand: "Ford",
       model: "Mustang",
-      color: "dark green",
+      color: "green",
       year: 1964
     };
   }
