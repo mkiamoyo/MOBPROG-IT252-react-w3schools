@@ -1,11 +1,11 @@
 import { createRoot } from 'react-dom/client'
 
-function Car() {
+function Car(props) {
   return (
-    <h2>Hi, I am a Mari Krisha Iana!</h2>
+    <h2>I am a {props.color} Mari Krisha Iana!</h2>
   );
 }
 
 createRoot(document.getElementById('root')).render(
-  <Car />
+  <Car color="green"/>
 );
