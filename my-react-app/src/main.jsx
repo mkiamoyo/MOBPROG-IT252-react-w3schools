@@ -2,20 +2,19 @@ import { createRoot } from 'react-dom/client'
 
 function Car(props) {
   return (
+    <h2>I am a {props.brand}!</h2>
+  );
+}
+
+function Garage() {
+  return (
     <>
-      <h2>My {props.carinfo.name} {props.carinfo.model}!</h2>
-      <p>It is {props.carinfo.color} and it is from {props.carinfo.year}!</p>
+      <h1>Who lives in my garage?</h1>
+      <Car brand="BMW" />
     </>
   );
 }
 
-const carInfo = {
-  name: "BMW",
-  model: "M4",
-  color: "dark green",
-  year: 2022
-};
-
 createRoot(document.getElementById('root')).render(
-  <Car carinfo={carInfo} />
+  <Garage />
 );
