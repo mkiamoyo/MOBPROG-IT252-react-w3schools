@@ -4,7 +4,10 @@ import React from 'react';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {favoritecolor: "green"};
+    this.state = {favoritecolor: "red"};
+  }
+  static getDerivedStateFromProps(props, state) {
+    return {favoritecolor: props.favcol };
   }
   render() {
     return (
@@ -14,6 +17,6 @@ class Header extends React.Component {
 }
 
 createRoot(document.getElementById('root')).render(
-  <Header />
-)
+  <Header favcol="dark green"/>
+);
        
