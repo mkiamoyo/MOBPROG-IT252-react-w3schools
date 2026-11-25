@@ -1,15 +1,10 @@
 import { createRoot } from 'react-dom/client';
-import './MyStylesheet.css';
-
-const Header = () => {
-  return (
-    <>
-      <h1>Hello Style!</h1>
-      <p>Add a little style!.</p>
-    </>
-  );
+import styles from './my-style.module.css'; 
+  
+const Car = () => {
+  return <h1 className={styles.bigred}>Hello Car!</h1>;
 }
-
+  
 createRoot(document.getElementById('root')).render(
-  <Header />
+  <Car />
 );
