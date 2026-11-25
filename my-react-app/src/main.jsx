@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
 function MyForm() {
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({
+    firstname: 'Maeve',
+    tomato: true,
+    onion: false
+  });
 
   const handleChange = (e) => {
     const target = e.target;
