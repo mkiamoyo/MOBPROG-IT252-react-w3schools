@@ -2,20 +2,30 @@ import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
 function MyForm() {
-  const [inputs, setInputs] = useState({
-    firstname: 'Maeve',
-    lastname: 'Armstrong'
-  });
+  const [inputs, setInputs] = useState({});
 
   const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+    const target = e.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
     setInputs(values => ({...values, [name]: value}))
   }
 
+  const handleSubmit = (event) => {
+    let fillings = '';
+    if (inputs.tomato) fillings += 'tomato';
+    if (inputs.onion) {
+      if (inputs.tomato) fillings += ' and ';
+      fillings += 'onion';
+    }
+    if (fillings == '') fillings = 'no fillings';
+    alert(`${inputs.firstname} wants a burger with ${fillings}`);
+    event.preventDefault();
+  };
+
   return (
-    <form>
-      <label>First name:
+    <form onSubmit={handleSubmit}>
+      <label>My name is:
       <input 
         type="text" 
         name="firstname" 
@@ -23,15 +33,25 @@ function MyForm() {
         onChange={handleChange}
       />
       </label>
-      <label>Last name:
+
+      <p>I want a burger with:</p>
+      <label>Tomato:
+      <input 
+        type="checkbox" 
+        name="tomato" 
+        checked={inputs.tomato} 
+        onChange={handleChange}
+      />
+      </label>
+      <label>Onion:
         <input 
-          type="text" 
-          name="lastname" 
-          value={inputs.lastname} 
+          type="checkbox" 
+          name="onion" 
+          checked={inputs.onion} 
           onChange={handleChange}
         />
         </label>
-        <p>Current values: {inputs.firstname} {inputs.lastname}</p>
+        <button type="submit">Submit</button>
     </form>
   )
 }
