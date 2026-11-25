@@ -1,16 +1,14 @@
 import { createRoot } from 'react-dom/client'
 
 function Car() {
-  const brand = "Ford";
-  const model = "Mustang";
   return (
     <>
-      <h2>My Car</h2>
-      <p>It is a {brand} {model}.</p>
+      <h1>My car</h1>
+      <p>It has {218 * 1.36} horsepower</p>
     </>
   );
 }
 
 createRoot(document.getElementById('root')).render(
   <Car />
-)
+);
