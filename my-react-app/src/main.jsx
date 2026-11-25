@@ -1,9 +1,15 @@
 import { createRoot } from 'react-dom/client';
 
 const Header = () => {
+  const myStyle = {
+    color: "white",
+    backgroundColor: "LightGreen",
+    padding: "10px",
+    fontFamily: "Sans-Serif"
+  };
   return (
     <>
-      <h1 style={{backgroundColor: "lightgreen"}}>Hello Style!</h1>
+      <h1 style={myStyle}>Hello Style!</h1>
       <p>Add a little style!</p>
     </>
   );
