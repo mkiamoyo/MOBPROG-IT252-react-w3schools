@@ -1,23 +1,17 @@
 import { createRoot } from 'react-dom/client';
 import styled from 'styled-components';
 
-const Button = styled.button`
+const MyHeader = styled.h1`
   padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: ${props => props.btntype === 'primary' ? '#007bff' : '#6c757d'};
+  background-color: #002750;
   color: white;
-  cursor: pointer;
 `;
 
 function App() {
   return (
-    <div>
-      <Button btntype="primary">Primary Button</Button>
-      <br />
-      <br />
-      <Button>Secondary Button</Button>
-    </div>
+    <>
+      <MyHeader>Welcome!</MyHeader>
+    </>
   );
 }
 
