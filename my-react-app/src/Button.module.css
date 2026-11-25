@@ -6,11 +6,13 @@
 }
 
 .primary {
-  background-color: #056b5c;
+  composes: button;
+  background-color: #004b4b;
   color: white;
 }
 
 .secondary {
+  composes: button;
   background-color: #6c757d;
   color: white;
 }

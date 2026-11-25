@@ -4,13 +4,13 @@ import styles from './Button.module.css';
 function App() {
   return (
     <div>
-      <button className={`${styles.mybutton} ${styles.primary}`}>
-        My Primary Button
+      <button className={styles.primary}>
+        Primary Button
       </button>
       <br/>
       <br/>
-      <button className={`${styles.mybutton} ${styles.secondary}`}>
-        My Secondary Button
+      <button className={styles.secondary}>
+        Secondary Button
       </button>
     </div>
   );
