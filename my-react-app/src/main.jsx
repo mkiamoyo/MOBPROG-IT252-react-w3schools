@@ -3,15 +3,19 @@ import { createRoot } from 'react-dom/client'
 function Car(props) {
   return (
     <>
-      <h2>My favorite car is a {props.carinfo.name} {props.carinfo.model}!</h2>
-      <p>But it has to from {props.years[0]}, {props.years[1]}, or {props.years[2]}.</p>
+      <h2>My {props.carinfo.name} {props.carinfo.model}!</h2>
+      <p>It is {props.carinfo.color} and it is from {props.carinfo.year}!</p>
     </>
   );
 }
 
-let x = [2022, 2023, 2024];
-let y = {name: "BMW", model: "M4"};
+const carInfo = {
+  name: "BMW",
+  model: "M4",
+  color: "dark green",
+  year: 2022
+};
 
 createRoot(document.getElementById('root')).render(
-  <Car years={x} carinfo={y} />
+  <Car carinfo={carInfo} />
 );
