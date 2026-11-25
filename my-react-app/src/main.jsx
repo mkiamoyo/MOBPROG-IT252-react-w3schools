@@ -1,17 +1,23 @@
 import { createRoot } from 'react-dom/client'
+import { useState } from 'react'
 
-function MyCars() {
-  const cars = ['Ford', 'BMW', 'Mercedes-Benz'];
+function MyForm() {
+  const [name, setName] = useState("");
+
   return (
-    <>
-      <h1>My Cars:</h1>
-      <ul>
-        {cars.map((car, index) => <li key={index}>I am a { car }</li>)}
-      </ul>
-    </>
-  );
+    <form>
+      <label>Enter your name:
+        <input
+          type="text" 
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </label>
+      <p>Current value: {name}</p>
+    </form>
+  )
 }
 
 createRoot(document.getElementById('root')).render(
-  <MyCars />
+  <MyForm />
 );
