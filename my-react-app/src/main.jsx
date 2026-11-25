@@ -1,20 +1,32 @@
 import { createRoot } from 'react-dom/client';
-import styled from 'styled-components';
+import { useState, useTransition } from 'react';
 
-const MyHeader = styled.h1`
-  padding: 10px 20px;
-  background-color: #002750;
-  color: white;
-`;
+function SearchBar() {
+  const [text, setText] = useState('');
+  const [results, setResults] = useState('');
+  const [isPending, startTransition] = useTransition();
 
-function App() {
+  const handleChange = (e) => {
+    // Urgent: Update input right away
+    setText(e.target.value);
+
+    // Non-urgent: Update search results
+    startTransition(() => {
+      setResults(e.target.value);
+    });
+  };
+
   return (
-    <>
-      <MyHeader>Welcome!</MyHeader>
-    </>
+    <div>
+      <input value={text} onChange={handleChange} />
+      {isPending ? (
+        <p>Loading...</p>
+      ) : (
+        <p>Search results for: {results}</p>
+      )}
+    </div>
   );
 }
-
 createRoot(document.getElementById('root')).render(
-  <App />
+  <SearchBar />
 );
