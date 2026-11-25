@@ -9,5 +9,5 @@ function Car(props) {
 }
 
 createRoot(document.getElementById('root')).render(
-  <Car brand="BMW" />
+  <Car />
 );
