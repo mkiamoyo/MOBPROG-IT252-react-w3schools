@@ -1,8 +1,9 @@
 import { createRoot } from 'react-dom/client'
 
-function Car({color}) {
+function Car(props) {
+  const {brand, model} = props;
   return (
-    <h2>My car is {color}!</h2>
+    <h2>I love my {brand} {model}!</h2>
   );
 }
 
