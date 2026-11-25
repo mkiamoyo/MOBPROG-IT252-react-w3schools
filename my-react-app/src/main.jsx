@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client'
 
-function Car() {
+function Car(props) {
   return (
-    <h2>I am a BMW Car!</h2>
+    <h2>I am a {props.brand}!</h2>
   );
 }
 
@@ -10,8 +10,8 @@ function Garage() {
   return (
     <>
       <h1>Who lives in my Garage?</h1>
-      <Car />
-      <Car />
+      <Car brand="Ford Ranger" />
+      <Car brand="Bmw M4" />
     </>
   );
 }
