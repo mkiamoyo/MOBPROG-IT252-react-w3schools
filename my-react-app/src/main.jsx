@@ -1,5 +1,5 @@
+import { createRoot } from 'react-dom/client'
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 
 class Car extends React.Component {
   constructor(props) {
@@ -11,6 +11,9 @@ class Car extends React.Component {
       year: 1964
     };
   }
+  changeColor = () => {
+    this.setState({color: "blue"});
+  }
   render() {
     return (
       <div>
@@ -20,7 +23,15 @@ class Car extends React.Component {
           {this.state.model}
           from {this.state.year}.
         </p>
+        <button
+          type="button"
+          onClick={this.changeColor}
+        >Change color</button>
       </div>
     );
   }
 }
+
+createRoot(document.getElementById('root')).render(
+  <Car />
+)
