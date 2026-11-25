@@ -4,3 +4,13 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.primary {
+  background-color: #056b5c;
+  color: white;
+}
+
+.secondary {
+  background-color: #6c757d;
+  color: white;
+}
