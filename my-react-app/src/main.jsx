@@ -1,12 +1,11 @@
-// Without useMemo
-import { useState } from 'react';
+// With useMemo
+import { useState, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
-
 
 const App = () => {
   const [count, setCount] = useState(0);
   const [todos, setTodos] = useState([]);
-  const calculation = expensiveCalculation(count);
+  const calculation = useMemo(() => expensiveCalculation(count), [count]);
 
   const increment = () => {
     setCount((c) => c + 1);
@@ -30,7 +29,7 @@ const App = () => {
         <button onClick={increment}>+</button>
         <h2>Expensive Calculation</h2>
         {calculation}
-        <p>Note that this example executes the expensive function also when you click on the Add Todo button.</p>
+        <p>Note: This example executes the expensive function only when you click on the Increment button, and not when you add a todo.</p>
       </div>
     </div>
   );
