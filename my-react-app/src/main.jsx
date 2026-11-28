@@ -1,59 +1,39 @@
-import { useReducer } from 'react';
+//Without useCallback:
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
-const initialScore = [
-  {
-    id: 1,
-    score: 0,
-    name: "John",
-  },
-  {
-    id: 2,
-    score: 0,
-    name: "Sally",
-  },
-];
+// Child component that receives a function prop
+const Button = React.memo(({ onClick, text }) => {
+  alert(`Child ${text} button rendered`);
+  return <button onClick={onClick}>{text}</button>;
+});
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "INCREASE":
-      return state.map((player) => {
-        if (player.id === action.id) {
-          return { ...player, score: player.score + 1 };
-        } else {
-          return player;
-        }
-      });
-    default:
-      return state;
-  }
-};
+// Parent component without useCallback
+function WithoutCallbackExample() {
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
 
-function Score() {
-  const [score, dispatch] = useReducer(reducer, initialScore);
-
-  const handleIncrease = (player) => {
-    dispatch({ type: "INCREASE", id: player.id });
+  // This function is recreated on every render
+  const handleClick1 = () => {
+    setCount1(count1 + 1);
   };
 
+  const handleClick2 = () => {
+    setCount2(count2 + 1);
+  };
+
+  alert("Parent rendered");
   return (
-    <>
-      {score.map((player) => (
-        <div key={player.id}>
-          <label>
-            <input
-              type="button"
-              onClick={() => handleIncrease(player)}
-              value={player.name}
-            />
-            {player.score}
-          </label>
-        </div>
-      ))}
-    </>
+    <div>
+      <h2>Without useCallback:</h2>
+      <p>Count 1: {count1}</p>
+      <p>Count 2: {count2}</p>
+      <Button onClick={handleClick1} text="Button 1" />
+      <Button onClick={handleClick2} text="Button 2" />
+    </div>
   );
 }
 
 createRoot(document.getElementById('root')).render(
-  <Score />
-);
+  <WithoutCallbackExample />
+); 
